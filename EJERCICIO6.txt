@@ -1,0 +1,2 @@
+GRANT ALL ON sakila.* TO 'operSAK1'@'%
+WITH maz_queries_per_hour 10;
