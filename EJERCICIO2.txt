@@ -1,0 +1,20 @@
+mysqld_safe --skip-grant-tables --skip-networking & 
+
+
+mysql -u root 
+
+
+use mysql;
+
+
+UPDATE user SET authentication_string=PASSWORD('root') where user='root'; 
+
+
+flush privileges; 
+
+
+quit;
+
+
+service mysql stop
+service mysql start
