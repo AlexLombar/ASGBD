@@ -1,0 +1,12 @@
+CREATE USER 'adminEMP'@'%' identified by 'admin';
+CREATE USER 'operEMP1'@'%'identified by 'admin';
+create user 'operEMP2'@'%' IDENTIFIED BY 'admin';
+GRANT ALL PRIVILEGES ON employees.* TO 'adminEMP'@'%';
+GRANT select ON employees.* TO 'operEMP1'@'%';
+GRANT select ON employees.dept_manager TO 'operEMP1'@'%';
+grant all privileges ON employees.* TO 'operEMP1'@'%';
+revoke select ON employees.salaries from 'operEMP1'@'%';
+grant select ON employees.dept_manager TO 'operEMP1'@'%';
+grant insert (emp_no,from_date,to_date) on employees.titles to 'operEMP2'@'%';
+revoke alter on employees.* from 'operEMP1'@'%';
+grant insert (emp_no,from_date,to_date) on employees.titles to 'operEMP2'@'%';
